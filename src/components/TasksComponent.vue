@@ -2,6 +2,7 @@
     <div>
         <h2>{{ title }}</h2>
 
+        <input type="text" v-model="task">
         <button @click="callParent">Chamar Pai</button>
 
         <ul>
@@ -18,12 +19,14 @@
 
         data() {
             return {
+                task: ''
             }
         },
         methods: {
             callParent() {
-                alert('Chama pae')
-                this.$emit('calledParent')
+                this.$emit('calledParent', this.task)
+
+                this.task = ''
             }
         },
     }

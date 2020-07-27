@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{ msg }}</h1>
     
-    <tasks-component @calledParent="answerSon" :items="['Cozinha', 'Banheiro', 'Sala de Estar']" :title="'Categorias'"></tasks-component>
+    <tasks-component @calledParent="answerSon" :items="tasks" :title="'Categorias'"></tasks-component>
 
     <list-items-component :title="'Listagem de Algo'" :items="['Piso', 'Parede', 'Pia', 'Others']"></list-items-component>
   </div>
@@ -16,7 +16,8 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Meu primeiro website em Vue'
+      msg: 'Meu primeiro website em Vue',
+      tasks: ['Cozinha', 'Banheiro', 'Sala de Estar']
     }
   },
 
@@ -25,10 +26,10 @@ export default {
     ListItemsComponent
   },
   methods: {
-    answerSon() {
-      alert('Responde Filho')
+    answerSon(task) {
+      this.tasks.push(task)
     }
-  },
+  }
 }
 </script>
 
