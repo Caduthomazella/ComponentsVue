@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{ msg }}</h1>
     
-    <tasks-component :items="['Cozinha', 'Banheiro', 'Sala de Estar']" :title="'Categorias'"></tasks-component>
+    <tasks-component @calledParent="answerSon" :items="['Cozinha', 'Banheiro', 'Sala de Estar']" :title="'Categorias'"></tasks-component>
 
     <list-items-component :title="'Listagem de Algo'" :items="['Piso', 'Parede', 'Pia', 'Others']"></list-items-component>
   </div>
@@ -23,7 +23,12 @@ export default {
   components: {
     TasksComponent,
     ListItemsComponent
-  }
+  },
+  methods: {
+    answerSon() {
+      alert('Responde Filho')
+    }
+  },
 }
 </script>
 
